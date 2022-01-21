@@ -2,13 +2,38 @@
 #CIS 479
 #Windy 8-Puzzle
 from array import*
-import heapq
+from heapq import*
+import itertools
 import queue
 
-#should probably ask prof if we can use the priority queue library or if he wants to see us create one from scratch
-#not quite sure what he expects/wants on that front
-
 #pq = array('i', []);
+
+class pq:
+   def __init__(self, minHeap = None):
+       if minHeap is None:
+          self.minHeap = []
+   #return top priority item
+   def peek(self):
+      return self.minHeap[0]
+   #insert an item into the heap
+   def insert(self, item):
+      heappush(self.minHeap, item)
+   #pops the top item of the heap 
+   def remove(self):
+      heappop(self.minHeap)
+      heapify(self.minHeap)
+   #need to full print heap
+
+
+heapObj = pq()
+heapObj.insert(2)
+heapObj.insert(3)
+heapObj.insert(15)
+heapObj.insert(5)
+heapObj.insert(4)
+heapObj.insert(45) 
+   
+print(heapObj.peek())
 
 class aGraph:
    def __init__(self,gDict=None):
@@ -17,7 +42,7 @@ class aGraph:
       self.gDict = gDict
    def getVertices(self):
       return list(self.gDict.keys())
-   def edges(self):
+   def getEdges(self):
       return self.findEdges()
 #Add vertex
    def addVertex(self, v):
@@ -38,15 +63,15 @@ class aGraph:
          for nxtvx in self.gDict[vx]:
             if {nxtvx, vx} not in edgename:
                edgename.append({vx, nxtvx})
-            return edgename
+      return edgename
 
 #initial state
-#initArr = array('i', [2, 8, 3, 6, 7, 4, 1, 5, 0]);
+initArr = [[2, 8, 3], [6, 7, 4], [1, 5, 0]]
 #2, 8, 3
 #6, 7, 4
 #1, 5, 0
 #goal state
-#goalArr = array('i', [1, 2, 3, 8, 0, 4, 7, 6, 5]);
+goalArr = [[1, 2, 3], [8, 0, 4], [7, 6, 5]]
 #1, 2, 3
 #8, 0, 4
 #7, 6, 5
@@ -65,6 +90,9 @@ initialSt = {
 }
 
 g = aGraph(initialSt)
-print(g.getVertices())
+#print(g.getVertices())
+#print(g.getEdges())
+
+#print(goalArr)
 
 

@@ -23,6 +23,11 @@ class pq:
       heappop(self.minHeap)
       heapify(self.minHeap)
    #need to full print heap
+   def printHeap(self):
+      for i in self.minHeap:
+         print(i, end = ' ')
+         
+
 
 
 heapObj = pq()
@@ -33,7 +38,14 @@ heapObj.insert(5)
 heapObj.insert(4)
 heapObj.insert(45) 
    
-print(heapObj.peek())
+#print(heapObj.peek())
+
+#heapObj.printHeap()
+
+heapObj.remove()
+heapObj.remove()
+
+heapObj.printHeap()
 
 class aGraph:
    def __init__(self,gDict=None):

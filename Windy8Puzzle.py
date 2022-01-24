@@ -9,9 +9,8 @@ import queue
 #pq = array('i', []);
 
 class pq:
-   def __init__(self, minHeap = None):
-       if minHeap is None:
-          self.minHeap = []
+   def __init__(self):
+         self.minHeap = []
    #return top priority item
    def peek(self):
       return self.minHeap[0]
@@ -22,30 +21,37 @@ class pq:
    def remove(self):
       heappop(self.minHeap)
       heapify(self.minHeap)
+   #prints if queue is empty
+   def isEmpty(self):
+      return len(self.minHeap) == True
    #need to full print heap
    def printHeap(self):
       for i in self.minHeap:
-         print(i, end = ' ')
+            print(i, end = ' ')
+            print()
          
 
 
 
 heapObj = pq()
-heapObj.insert(2)
 heapObj.insert(3)
+heapObj.insert(2)
 heapObj.insert(15)
 heapObj.insert(5)
 heapObj.insert(4)
-heapObj.insert(45) 
+heapObj.insert(45)
+heapObj.remove()
    
 #print(heapObj.peek())
 
-#heapObj.printHeap()
-
-heapObj.remove()
-heapObj.remove()
-
 heapObj.printHeap()
+
+print(heapObj.isEmpty())
+
+#heapObj.remove()
+#heapObj.remove()
+
+#heapObj.printHeap()
 
 class aGraph:
    def __init__(self,gDict=None):

@@ -76,7 +76,6 @@ class aGraph:
          y = self.adj[v2]
          self.adj[v2] = x
          self.adj[v1] = y
-         #self.adj[v1][x] = [v2]
          swapped = True
       return swapped
             

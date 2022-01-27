@@ -20,10 +20,15 @@ class pq:
    #pops the top item of the heap 
    def remove(self):
       heappop(self.minHeap)
+      popped = heappop(self.minHeap)
       heapify(self.minHeap)
+<<<<<<< Updated upstream
    #prints if queue is empty
    def isEmpty(self):
       return len(self.minHeap) == True
+=======
+      return popped
+>>>>>>> Stashed changes
    #need to full print heap
    def printHeap(self):
       for i in self.minHeap:
@@ -105,6 +110,7 @@ class aGraph:
 #6, 7, 4
 #1, 5, 0
 #goal state
+goalArr = [1, 2, 3, 8, 0, 4, 7, 6, 5]
 #1, 2, 3
 #8, 0, 4
 #7, 6, 5
@@ -113,12 +119,28 @@ class aGraph:
 #note for the array: up == -3, down == +3, left == -1, right == +1#
 #=================================================================#
 # Create the dictionary with graph elements
+<<<<<<< Updated upstream
 initialSt = [(2, 8), (2, 6), (8, 2), (8, 3),(8,7), (3,8), (3,4), (7, 6), (7,8), (7, 4), (7,5), (4, 7), (4, 3), (4, 0),
  (1, 6), (1,5), (5, 1), (5, 7), (5,0), (0,5), (0,4)]
 
 numOfVertices = 9
 
 g = aGraph(initialSt, numOfVertices)
+=======
+initialSt = { 
+   "2" : ["8","6"],
+   "8" : ["2", "3", "7"],
+   "3" : ["8", "4"],
+   "6" : ["7", "1"],
+   "7" : ["6", "8", "4", "5"],
+   "4" : ["7", "3", "0"] ,
+   "1" : ["6", "5"],
+   "5" : ["1", "7", "0"],
+   "0" : ["5", "4"]
+}
+
+#g = aGraph(initialSt)
+>>>>>>> Stashed changes
 #print(g.getVertices())
 #print(g.getEdges())
 

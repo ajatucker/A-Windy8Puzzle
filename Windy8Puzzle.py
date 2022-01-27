@@ -46,9 +46,12 @@ heapObj.remove()
 
 #print(heapObj.isEmpty())
 
+<<<<<<< Updated upstream
 #heapObj.remove()
 #heapObj.remove()
 
+=======
+>>>>>>> Stashed changes
 #heapObj.printHeap()
 
 class aGraph:
@@ -98,16 +101,17 @@ class aGraph:
         print()
 
 #initial state
-initArr = [[2, 8, 3], [6, 7, 4], [1, 5, 0]]
 #2, 8, 3
 #6, 7, 4
 #1, 5, 0
 #goal state
-goalArr = [[1, 2, 3], [8, 0, 4], [7, 6, 5]]
 #1, 2, 3
 #8, 0, 4
 #7, 6, 5
 
+#=================================================================#
+#note for the array: up == -3, down == +3, left == -1, right == +1#
+#=================================================================#
 # Create the dictionary with graph elements
 initialSt = [(2, 8), (2, 6), (8, 2), (8, 3),(8,7), (3,8), (3,4), (7, 6), (7,8), (7, 4), (7,5), (4, 7), (4, 3), (4, 0),
  (1, 6), (1,5), (5, 1), (5, 7), (5,0), (0,5), (0,4)]
@@ -123,5 +127,73 @@ g = aGraph(initialSt, numOfVertices)
 print(g.swapVertex(1, 2))
 
 g.printGraph()
+
+myTup = (1, 2, 3, 4)
+
+test = 'T2'
+
+num = 1000
+
+def hashToTable(table, member):
+   hashVal = hash(member)
+   table[member] = [hashVal]
+
+hashTable = {}
+
+hashToTable(hashTable, myTup)
+hashToTable(hashTable, test)
+hashToTable(hashTable, num)
+
+print(hashTable)
+
+#=================================================================#
+#note for the hVal: up == 1, down == 3, left == 2, right == 2#
+#=================================================================#
+def aHeuristic(current, goal):
+   i = 0
+   hVal = 0
+   for i in range(1,9):
+      print("Finding", i, ":")
+      t1 = goal.index(i)
+      t2 = current.index(i)
+      found = t1 - t2
+      print(found)
+      #if found is greater than 0, we have to go up or left
+      if(found > 0):
+         while found > 3:
+            found = found - 3
+            hVal = hVal + 1
+         while found > 0:
+            found = found - 1
+            hVal = hVal + 2
+      if(found < 0):
+         while found <= -3:
+            found = found + 3
+            hVal = hVal + 3
+            
+         while found < 0:
+            found = found + 1
+            hVal = hVal + 2
+      print(hVal)
+      print()
+
+         
+
+aHeuristic(initArr, goalArr)
+
+   
+
+def blah():
+   for i in range(len(goal)):
+      print("Finding", i, ":")
+      while i != current[j]:
+         if(j == 8):
+            j = 0
+         count = count + 1
+         print(count, end = ' ')
+         j = j + 1
+      count = 0
+      j = 0
+      print()
 
 

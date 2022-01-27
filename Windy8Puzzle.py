@@ -19,7 +19,6 @@ class pq:
       heappush(self.minHeap, item)
    #pops the top item of the heap 
    def remove(self):
-      heappop(self.minHeap)
       popped = heappop(self.minHeap)
       heapify(self.minHeap)
 <<<<<<< Updated upstream
@@ -106,6 +105,7 @@ class aGraph:
         print()
 
 #initial state
+initArr = [2, 8, 3, 6, 7, 4, 1, 5, 0]
 #2, 8, 3
 #6, 7, 4
 #1, 5, 0

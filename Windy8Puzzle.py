@@ -4,9 +4,8 @@
 from array import*
 from heapq import*
 import itertools
+from mimetypes import init
 import queue
-
-#pq = array('i', []);
 
 class pq:
    def __init__(self, minHeap = None):
@@ -118,20 +117,21 @@ test = 'T2'
 num = 1000
 
 def hashToTable(table, member):
-   hashVal = hash(member)
-   table[member] = [hashVal]
+   hashVal = hash(str(member))
+   table[str(member)] = [hashVal]
 
 hashTable = {}
 
-hashToTable(hashTable, myTup)
-hashToTable(hashTable, test)
-hashToTable(hashTable, num)
+#hashToTable(hashTable, myTup)
+#hashToTable(hashTable, test)
+#hashToTable(hashTable, num)
 
-print(hashTable)
+#print(hashTable)
 
 #=================================================================#
 #note for the hVal: up == 1, down == 3, left == 2, right == 2#
 #=================================================================#
+
 def aHeuristic(current, goal):
    i = 0
    hVal = 0
@@ -157,11 +157,82 @@ def aHeuristic(current, goal):
          while found < 0:
             found = found + 1
             hVal = hVal + 2
-      print(hVal)
-      print()
-
-         
-
-aHeuristic(initArr, goalArr)
+      return hVal
 
 
+def goal(num, current, goal):
+   gVal = 0
+   t1 = goal.index(num)
+   t2 = current.index(num)
+   found = t1 - t2
+   if(found > 0):
+      while found > 3:
+         found = found - 3
+         gVal = gVal + 1
+      while found > 0:
+         found = found - 1
+         gVal = gVal + 2
+   if(found < 0):
+      while found <= -3:
+         found = found + 3
+         gVal = gVal + 3
+            
+      while found < 0:
+         found = found + 1
+         gVal = gVal + 2
+   return gVal
+
+def testMove(move, current):
+   newCurr = current
+   zero = newCurr.index(0)
+   swapNum = newCurr[move]
+   newCurr[zero] = swapNum
+   newCurr[move] = 0
+   print(newCurr)
+   return newCurr
+
+def checkPossibleMoves(node):
+   i = node.index(0)
+   validMoves = {'R':(i+1),
+                  'L':(i-1),
+                  'D':(i+3),
+                  'U':(i-3)}
+   print(validMoves)
+   return validMoves
+
+def checkIfExplored(node, table):
+   return (str(node) in table.values())
+
+#AStar Algorithim
+def aStar(start, goal):
+   #begin = start.index(0)
+   frontier = pq()
+   frontier.insert(start)
+   #totalG = 0
+   #totalH = get initial hVal from aHeuristic
+
+   explored = {}
+   hashToTable(explored, start)
+
+   #while frontier.empty() != True:
+   currNode = frontier.peek()
+   if currNode == goal:
+      #we want to add in a function to reconstruct the path
+      pass
+   #how do we get the previously moved value?
+   #totalG = totalG + goal(currNode)
+   expanding = frontier.remove()
+   hashToTable(explored, expanding)
+   possibleMoves = checkPossibleMoves(currNode)
+   print('current: ',currNode)
+   for move in possibleMoves.values():
+      #here we need to evaluate the g score of the move, add in the g score to be considered in the below if statement
+      if move <= 8 and move >= 0:
+         print('move ', move, ': ')
+         addNewNode = testMove(move, currNode)
+         if checkIfExplored(addNewNode, explored) is False:
+            frontier.insert(addNewNode)
+            #hashToTable(explored, addNewNode)
+      #Check for the smallest g score to add to a list of previous nodes, so we can add to the total g for printing
+
+aStar(initArr, goalArr)

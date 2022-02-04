@@ -26,26 +26,6 @@ class pq:
    def printHeap(self):
       for i in self.minHeap:
          print(i, end = ' ')
-         
-
-
-
-heapObj = pq()
-heapObj.insert(2)
-heapObj.insert(3)
-heapObj.insert(15)
-heapObj.insert(5)
-heapObj.insert(4)
-heapObj.insert(45) 
-   
-#print(heapObj.peek())
-
-#heapObj.printHeap()
-
-heapObj.remove()
-heapObj.remove()
-
-#heapObj.printHeap()
 
 class aGraph:
    def __init__(self,gDict=None):
@@ -104,12 +84,6 @@ initialSt = {
    "0" : ["5", "4"]
 }
 
-#g = aGraph(initialSt)
-#print(g.getVertices())
-#print(g.getEdges())
-
-#print(goalArr)
-
 myTup = (1, 2, 3, 4)
 
 test = 'T2'
@@ -120,16 +94,11 @@ def hashToTable(table, member):
    hashVal = hash(str(member))
    table[str(member)] = [hashVal]
 
-hashTable = {}
-
-#hashToTable(hashTable, myTup)
-#hashToTable(hashTable, test)
-#hashToTable(hashTable, num)
-
-#print(hashTable)
-
 #=================================================================#
 #note for the hVal: up == 1, down == 3, left == 2, right == 2#
+#=================================================================#
+#=================================================================#
+#note for the array: up == -3, down == +3, left == -1, right == +1#
 #=================================================================#
 
 def aHeuristic(current, goal):
@@ -212,7 +181,7 @@ def aStar(start, goal):
    #totalH = get initial hVal from aHeuristic
 
    explored = {}
-   hashToTable(explored, start)
+   #hashToTable(explored, start)
 
    #while frontier.empty() != True:
    currNode = frontier.peek()
@@ -228,6 +197,7 @@ def aStar(start, goal):
    for move in possibleMoves.values():
       #here we need to evaluate the g score of the move, add in the g score to be considered in the below if statement
       if move <= 8 and move >= 0:
+         #moveVal = currNode.index(move)
          print('move ', move, ': ')
          addNewNode = testMove(move, currNode)
          if checkIfExplored(addNewNode, explored) is False:

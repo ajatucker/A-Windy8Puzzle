@@ -5,4 +5,7 @@ matrix:
     - name: "Python 3.8 dev"
       python: 3.8-dev
       dist: xenial
-      env: PYTHON=python3 PIP=pip3  # Unnecessary on Lunix
+      before_install:
+        - python -m pip install --upgrade pip
+      install:
+        pip install --user -r requirements.txt --use-feature=2020-resolver

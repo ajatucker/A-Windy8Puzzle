@@ -205,4 +205,12 @@ def aStar(start, goal):
             hashToTable(explored, addNewNode)
       #Check for the smallest g score to add to a list of previous nodes, so we can add to the total g for printing
 
-aStar(initArr, goalArr)
+def main():
+   print("test")
+  
+  
+# Using the special variable 
+# __name__
+if __name__=="__main__":
+   main()
+   aStar(initArr, goalArr)

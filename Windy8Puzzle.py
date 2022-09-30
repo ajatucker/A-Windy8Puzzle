@@ -181,7 +181,7 @@ def aStar(start, goal):
    #totalH = get initial hVal from aHeuristic
 
    explored = {}
-   #hashToTable(explored, start)
+   hashToTable(explored, start)
 
    #while frontier.empty() != True:
    currNode = frontier.peek()
@@ -197,12 +197,12 @@ def aStar(start, goal):
    for move in possibleMoves.values():
       #here we need to evaluate the g score of the move, add in the g score to be considered in the below if statement
       if move <= 8 and move >= 0:
-         #moveVal = currNode.index(move)
+         moveVal = currNode.index(move)
          print('move ', move, ': ')
          addNewNode = testMove(move, currNode)
          if checkIfExplored(addNewNode, explored) is False:
             frontier.insert(addNewNode)
-            #hashToTable(explored, addNewNode)
+            hashToTable(explored, addNewNode)
       #Check for the smallest g score to add to a list of previous nodes, so we can add to the total g for printing
 
 aStar(initArr, goalArr)

@@ -1,8 +1,8 @@
 language: python
-python:
-  - "2.7"
-  - "3.8"
-virtualenv:
-  system_site_packages: true
-install: pip3 install --upgrade pip  
-script: python3 Windy8Puzzle.py || python Windy8Puzzle.py
+
+matrix:
+  include:
+    - name: "Python 3.8 dev"
+      python: 3.8-dev
+      dist: xenial
+      env: PYTHON=python3 PIP=pip3  # Unnecessary on Lunix

@@ -4,5 +4,5 @@ python:
   - "3.8"
 virtualenv:
   system_site_packages: true
-
-script: make test
+install: pip3 install --upgrade pip  
+script: python3 Windy8Puzzle.py || python Windy8Puzzle.py

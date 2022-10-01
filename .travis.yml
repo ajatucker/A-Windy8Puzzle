@@ -8,4 +8,5 @@ matrix:
       before_install:
         - python -m pip install --upgrade pip
       install:
-        pip install --user -r req.txt
+        pip install kiwisolver
+        

@@ -3,14 +3,12 @@ language: python
 jobs:
   include:
     - os: linux
-      arch: amd64
       python: 3.8
       dist: xenial
     - os: windows
-      arch: amd64
       python: 3.8
-    before_install:
-      - python -m pip install --upgrade pip
+before_install:
+  - python -m pip install --upgrade pip
 install:
   pip install kiwisolver
 script: 

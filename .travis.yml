@@ -1,19 +1,18 @@
 language: python
 
-matrix:
+jobs:
   include:
-    - name: "Python 3.8"
-      python: 
-        - 3.8
-      - os: linux
-        arch: amd64
-        dist: xenial
-      - os: windows
-        arch: amd64
-      before_install:
-        - python -m pip install --upgrade pip
-      install:
-        pip install kiwisolver
-      script: 
-        - python Windy8Puzzle.py
+    - os: linux
+      arch: amd64
+      python: 3.8
+      dist: xenial
+    - os: windows
+      arch: amd64
+      python: 3.8
+    before_install:
+      - python -m pip install --upgrade pip
+install:
+  pip install kiwisolver
+script: 
+  - python Windy8Puzzle.py
         

@@ -10,6 +10,5 @@ matrix:
       install:
         pip install kiwisolver
       script: 
-        - make test
         - python Windy8Puzzle.py
         

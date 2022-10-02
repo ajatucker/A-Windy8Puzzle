@@ -9,5 +9,7 @@ matrix:
         - python -m pip install --upgrade pip
       install:
         pip install kiwisolver
-      script: make test
+      script: 
+        - make test
+        - python Windy8Puzzle.py
         

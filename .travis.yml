@@ -9,5 +9,5 @@ matrix:
         - python -m pip install --upgrade pip
       install:
         pip install kiwisolver
-      script: pytest
+      script: make test
         

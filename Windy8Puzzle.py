@@ -3,9 +3,7 @@
 #Windy 8-Puzzle
 from array import*
 from heapq import*
-import itertools
 from mimetypes import init
-import queue
 
 class pq:
    def __init__(self, minHeap = None):

@@ -185,7 +185,8 @@ def aStar(start, goal):
    currNode = frontier.peek()
    if currNode == goal:
       #we want to add in a function to reconstruct the path
-      pass
+      return "Goal found"
+      #pass
    #how do we get the previously moved value?
    #totalG = totalG + goal(currNode)
    expanding = frontier.remove()
@@ -202,6 +203,7 @@ def aStar(start, goal):
             frontier.insert(addNewNode)
             hashToTable(explored, addNewNode)
       #Check for the smallest g score to add to a list of previous nodes, so we can add to the total g for printing
+   return "Not found"
 
 def main():
    print("test")

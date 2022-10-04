@@ -13,4 +13,5 @@ install:
   pip install kiwisolver
 script: 
   - python Windy8Puzzle.py
+  - python test.py
         
